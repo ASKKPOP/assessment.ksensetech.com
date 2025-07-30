@@ -77,6 +77,18 @@ Total Risk = Blood Pressure Score + Temperature Score + Age Score
 npm install
 ```
 
+3. **Configure API Key** (Security Setup):
+   ```bash
+   # Option 1: Using environment variable (Recommended)
+   export API_KEY="your_api_key_here"
+   
+   # Option 2: Create a .env file
+   cp config.example.js config.local.js
+   # Edit config.local.js and add your API key
+   ```
+
+**⚠️ Security Note**: Never commit your actual API key to version control. The API key is loaded from environment variables or a local config file.
+
 ## Usage
 
 ### Run the Complete Assessment
@@ -376,11 +388,29 @@ Submits assessment results for scoring.
 }
 ```
 
+## Security Best Practices
+
+### API Key Management
+- ✅ **Environment Variables**: Use `API_KEY` environment variable
+- ✅ **Local Config**: Use `config.local.js` for development
+- ✅ **Never Commit**: API keys are excluded from version control
+- ✅ **Example Files**: Use `config.example.js` as a template
+
+### Production Deployment
+```bash
+# Set environment variable
+export API_KEY="your_production_api_key"
+
+# Or use a .env file (not committed to git)
+echo "API_KEY=your_production_api_key" > .env
+```
+
 ## Dependencies
 
 - **Node.js**: ES modules support required
 - **fetch**: Built-in HTTP client (Node.js 18+)
 - **axios**: HTTP client (optional, for older Node.js versions)
+- **dotenv**: Environment variable management
 
 ## License
 

@@ -1,10 +1,9 @@
-// Load environment variables
-import dotenv from 'dotenv';
-dotenv.config();
+// Healthcare API Assessment - Configuration Example
+// Copy this file to config.local.js and add your API key
 
 export const CONFIG = {
   API_BASE_URL: 'https://assessment.ksensetech.com/api',
-  API_KEY: process.env.API_KEY || 'ak_3b95f69c290603ef0f02c21ee15602b39d8d2ded808f7541', // Fallback for development
+  API_KEY: 'your_api_key_here', // Replace with your actual API key
   DEFAULT_LIMIT: 5,
   MAX_LIMIT: 20,
   RETRY_ATTEMPTS: 3,
