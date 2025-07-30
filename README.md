@@ -111,7 +111,7 @@ const results = await assessment.runAssessment();
 const currentResults = assessment.getCurrentResults();
 
 // Get detailed analysis for a specific patient
-const patientDetails = assessment.getPatientDetails('DEMO001');
+const patientDetails = assessment.getPatientDetails('PAT001');
 
 // Get summary statistics
 const summary = assessment.getSummary();
@@ -370,9 +370,9 @@ Submits assessment results for scoring.
 **Body:**
 ```json
 {
-  "high_risk_patients": ["DEMO001", "DEMO002"],
-  "fever_patients": ["DEMO003", "DEMO004"],
-  "data_quality_issues": ["DEMO005", "DEMO006"]
+  "high_risk_patients": ["PAT001", "PAT002"],
+  "fever_patients": ["PAT003", "PAT004"],
+  "data_quality_issues": ["PAT005", "PAT006"]
 }
 ```
 
