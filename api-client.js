@@ -10,7 +10,8 @@ export class ApiClient {
     this.apiKey = CONFIG.API_KEY;
     this.headers = {
       'x-api-key': this.apiKey,
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'User-Agent': 'HealthcareAssessment/1.0.0'
     };
   }
 
@@ -123,9 +124,9 @@ export class ApiClient {
     };
 
     console.log('Submitting assessment results...');
-    console.log('High risk patients:', payload.high_risk_patients.length);
-    console.log('Fever patients:', payload.fever_patients.length);
-    console.log('Data quality issues:', payload.data_quality_issues.length);
+    console.log(`High risk patients: ${payload.high_risk_patients.length}`);
+    console.log(`Fever patients: ${payload.fever_patients.length}`);
+    console.log(`Data quality issues: ${payload.data_quality_issues.length}`);
 
     return this.makeRequest('/submit-assessment', {
       method: 'POST',

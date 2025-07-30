@@ -14,7 +14,9 @@ export function parseBloodPressure(bpString) {
   }
 
   const trimmed = bpString.trim();
-  if (trimmed === '' || trimmed === 'null' || trimmed === 'undefined') {
+  // Sanitize input to prevent injection attacks
+  if (trimmed === '' || trimmed === 'null' || trimmed === 'undefined' || 
+      trimmed.length > 50 || /[<>\"'&]/.test(trimmed)) {
     return { systolic: null, diastolic: null, isValid: false };
   }
 

@@ -4,7 +4,9 @@ dotenv.config();
 
 export const CONFIG = {
   API_BASE_URL: 'https://assessment.ksensetech.com/api',
-  API_KEY: process.env.API_KEY || 'ak_3b95f69c290603ef0f02c21ee15602b39d8d2ded808f7541', // Fallback for development
+  API_KEY: process.env.API_KEY || (() => {
+    throw new Error('API_KEY environment variable is required. Please set API_KEY=your_key_here');
+  })(),
   DEFAULT_LIMIT: 5,
   MAX_LIMIT: 20,
   RETRY_ATTEMPTS: 3,

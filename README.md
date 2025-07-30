@@ -391,19 +391,28 @@ Submits assessment results for scoring.
 ## Security Best Practices
 
 ### API Key Management
-- ✅ **Environment Variables**: Use `API_KEY` environment variable
-- ✅ **Local Config**: Use `config.local.js` for development
+- ✅ **Environment Variables**: Use `API_KEY` environment variable (Required)
+- ✅ **No Hardcoded Keys**: API key must be set via environment variable
 - ✅ **Never Commit**: API keys are excluded from version control
 - ✅ **Example Files**: Use `config.example.js` as a template
+- ✅ **Input Sanitization**: All inputs are validated and sanitized
+- ✅ **Secure Headers**: Proper HTTP headers for API requests
 
 ### Production Deployment
 ```bash
-# Set environment variable
+# Set environment variable (Required)
 export API_KEY="your_production_api_key"
 
 # Or use a .env file (not committed to git)
 echo "API_KEY=your_production_api_key" > .env
 ```
+
+### Security Features
+- 🔒 **No Hardcoded Secrets**: API keys must be provided via environment
+- 🔒 **Input Validation**: Comprehensive sanitization of all inputs
+- 🔒 **HTTPS Only**: All API communications use secure HTTPS
+- 🔒 **Error Handling**: No sensitive data exposed in error messages
+- 🔒 **Dependency Security**: All dependencies are vulnerability-free
 
 ## Dependencies
 
